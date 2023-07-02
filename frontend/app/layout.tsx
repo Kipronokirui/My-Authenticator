@@ -1,11 +1,13 @@
 import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
+import type { Metadata } from 'next'
 import Navbar from '@/components/common/Navbar'
 import Footer from '@/components/common/Footer'
+import Provider from '@/redux/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
+export const metadata:Metadata = {
   title: 'My django-next js website',
   description: 'Creating a full website with django and next js',
 }
@@ -18,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <div>
-          {children}
-        </div>
-        <Footer />
+        <Provider>
+          <Navbar />
+          <div>
+            {children}
+          </div>
+          <Footer />
+        </Provider>
       </body>
     </html>
   )
