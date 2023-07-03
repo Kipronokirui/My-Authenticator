@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/common/Navbar'
 import Footer from '@/components/common/Footer'
 import Provider from '@/redux/provider'
+import { Setup } from '@/components/utils'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Provider>
+          <Setup />
           <Navbar />
           <div>
             {children}
